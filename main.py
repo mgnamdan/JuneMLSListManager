@@ -2,16 +2,29 @@
 # HELPER FUNCTIONS AND IMPORTS
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-    # ~~~ PRINT FUNCTIONS ~~~
+    # ~~~~~ PRINT FUNCTIONS ~~~~~
 def optionsMenu():
-    pass
+    print("")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print("")
+    print("            OPTIONS MENU")
+    print("")
+    print("          1. View List")
+    print("          2. Add Item(s)")
+    print("          3. Remove Item(s)")
+    print("          4. Edit Item(s)")
+    print("          5. Move Item(s)")
+    print("          6. Exit")
+    print("")
+    print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+    print("")
 
 
 def printList():
     pass
 
 
-    # ~~~ FILE FUNCTIONS ~~~
+    # ~~~~~ FILE FUNCTIONS ~~~~~
 def loadList(filename):
     try:
         with open(filename, "r") as listIn:
@@ -33,7 +46,7 @@ def saveList(listIn, filename):
                 listOut.write(listIn[idx])
 
 
-    # ~~~ LIST FUNCTIONS ~~~
+    # ~~~~~ LIST FUNCTIONS ~~~~~
 def addItems():
     pass
 
@@ -57,11 +70,14 @@ def main():
     listName = "groceries.txt"
 
     while appOn:
+        # Reload list at the top of every loop; file saved at end of each helper
         groceries = loadList(listName)
 
+        # Print options and verify correct user input (with while loop)
         optionsMenu()
         userChoice = input(" --> ")
 
+        # Check user input and run chosen function
         if userChoice == "1":
             printList()
         elif userChoice == "2":
@@ -78,7 +94,7 @@ def main():
             print("")
             print("Invalid choice - try again!")
 
-
+        # To move (to helpers)
         saveList(groceries, listName)
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
